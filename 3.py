@@ -1,14 +1,13 @@
 import requests
 import pprint
 
-response = requests.get('https://api.github.com')
+params = {
+    'q': 'html'
+}
+response = requests.get( url='https://api.github.com/search/repositories',
+params = params)
+
 print(response.status_code)
 print(response.ok)
-
-#print(response.text)
-print(response.content)
-
 response_json = response.json()
-
-
 pprint.pprint(response_json)
